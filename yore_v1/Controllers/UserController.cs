@@ -16,6 +16,15 @@ namespace yore_v1.Controllers
 
             return View(userModel);
         }
+
+        [HttpGet]
+        public ActionResult Login(int id = 0)
+        {
+            User userModel = new User();
+
+            return View(userModel);
+        }
+
         [HttpPost]
         public ActionResult Register(User userModel)
         {
@@ -32,6 +41,22 @@ namespace yore_v1.Controllers
             ModelState.Clear();
             ViewBag.SuccessMessage = "Registration Successfull";
             return View("Register", new User());
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            using (DbModels dbModel = new DbModels())
+            {
+                if (dbModel.Users.Any(x => x.Username == user.Username && x.Password == user.Password))
+                {
+                    ViewBag.WelcomeMessage = "Welcome" + user.Username;
+                    return View("Home", "Home", "Index");
+                }
+            }
+            ModelState.Clear();
+            ViewBag.LoginErrorMessage= "Invalid username or Password";
+            return View("Login", new User());
         }
     }
 }
