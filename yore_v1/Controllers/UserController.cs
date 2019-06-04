@@ -44,14 +44,16 @@ namespace yore_v1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
             using (DbModels dbModel = new DbModels())
             {
                 if (dbModel.Users.Any(x => x.Username == user.Username && x.Password == user.Password))
                 {
-                    ViewBag.WelcomeMessage = "Welcome" + user.Username;
-                    return View("Home", "Home", "Index");
+                    Session["UserID"] = user.UserID.ToString();
+                    Session["Username"] = user.Username.ToString();
+                    return View("~/Views/Home/Index.cshtml");
                 }
             }
             ModelState.Clear();
