@@ -10,19 +10,29 @@ namespace yore_v1.Controllers
     public class UserController : Controller
     {
         [HttpGet]
-        public ActionResult Register(int id = 0)
+        public ActionResult Register()
         {
-            User userModel = new User();
-
-            return View(userModel);
+            User user = new User();
+            return View(user);
         }
 
         [HttpGet]
-        public ActionResult Login(int id = 0)
+        public ActionResult Login()
         {
-            User userModel = new User();
+            if (Session["UserID"] != null)
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
+            User user = new User();
+            return View(user);
+        }
 
-            return View(userModel);
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            User user = new User();
+            return View("Login", user);
         }
 
         [HttpPost]
