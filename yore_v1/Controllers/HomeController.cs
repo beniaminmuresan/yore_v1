@@ -14,7 +14,7 @@ namespace yore_v1.Controllers
             {
                 return View();
             }
-            return View("Login", "User");
+            return View("~/Views/User/Login.cshtml");
         }
     }
 }
