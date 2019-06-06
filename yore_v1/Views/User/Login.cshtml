@@ -6,55 +6,6 @@
 
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
-    @*@Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Submit" class="btn btn-default" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-2">
-                    <label class="label-danger">@ViewBag.LoginErrorMessage</label>
-                </div>
-            </div>
-        </div>*@
-
-
-    // DE AICI IN JOS ESTE DE PE CODEPEN
-    <!-- Page Essentials Link e Meta tags -->
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#E91E63">
-
-    <!-- Css -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/cee2de6ffc.css">
-
-    <!-- Jquery 3.1.0 -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
     <div class="menu">
         <div class="login">
             <center><img src="https://i.ibb.co/GMLNc55/yore-logo.png" border="0" width="50px"></center>
@@ -63,25 +14,24 @@
             <form action="">
                 <div class="input name">
                     <label>Username</label>
-                    @Html.EditorFor(model => model.Username, new
-                    {
-                        htmlAttributes = new { @class = "text" }
-                    })
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "1" }})
                     <div class="bar"></div>
                     @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="input name">
                     <label>Password</label>
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "1" } })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "2" } })
                     <div class="bar"></div>
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </div>
-                <button type="button" tabindex="5" class="submit" disabled="disabled" title="Log In">GO</button>
+                <button type="button" tabindex="3" class="submit" disabled="disabled" title="Log In">GO</button>
+                <center><a href="">Don't have an account yet? Sign up now!</a></center>
             </form>
         </div>
     </div>
+
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css" />
 }
 

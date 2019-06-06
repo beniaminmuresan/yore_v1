@@ -25,14 +25,14 @@
   });
   
   // When 'bluring' the input, it checks if it is not empty. If it is not, add a class named active to it
-  $(input).on('focusout',function() {
-    var val = input.val();
-    if(val === "") {
-      $(this).siblings('label').removeClass('active');
-    } else {
-      $(this).siblings('label').addClass('active');
-    }
-  });
+  //$(input).on('focusout',function() {
+    //var val = input.val();
+    //if(val === "") {
+     // $(this).siblings('label').removeClass('active');
+    //} else {
+      //$(this).siblings('label').addClass('active');
+    //}
+  //});
   
   // When clicking the login button, it will run some animations and get the datas of the input fields
   button.on('click', function() {
