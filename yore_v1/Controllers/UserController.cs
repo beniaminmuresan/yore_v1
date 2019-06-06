@@ -21,7 +21,7 @@ namespace yore_v1.Controllers
         {
             if (Session["UserID"] != null)
             {
-                return View("~/Views/Home/Index.cshtml");
+                return this.RedirectToAction("Index", "Posts");
             }
             User user = new User();
             return View(user);
@@ -63,7 +63,7 @@ namespace yore_v1.Controllers
                 {
                     Session["UserID"] = user.UserID.ToString();
                     Session["Username"] = user.Username.ToString();
-                    return View("~/Views/Home/Index.cshtml");
+                    return this.RedirectToAction("Index", "Posts");
                 }
             }
             ModelState.Clear();

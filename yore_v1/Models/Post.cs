@@ -12,10 +12,14 @@ namespace yore_v1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Post
     {
-        public int CategoryID { get; set; }
-        public string Name { get; set; }
-        public string Icon { get; set; }
+        public int PostID { get; set; }
+        public Nullable<int> CategoryID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public string Photo { get; set; }
+        public Nullable<int> Likes { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 }

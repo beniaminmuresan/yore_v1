@@ -13,10 +13,10 @@ namespace yore_v1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class PostModel : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public PostModel()
+            : base("name=PostModel")
         {
         }
     
@@ -25,6 +25,6 @@ namespace yore_v1.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
     }
 }
