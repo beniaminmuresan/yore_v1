@@ -4,60 +4,41 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <div class="row">
+        <div class="col-sm-1">
+            <img src="https://i.ibb.co/GMLNc55/yore-logo.png" border="0" width="50px">
+        </div>
+        <div class="col-sm-7">
+            <h2 style="margin-top: 9px; margin-left: -25px;">Health and Travel</h2>
+        </div>
+        <div class="col-sm-2">
+            <a href="@Url.Action("Create", "Posts")" class="btn btn-success">Create new Post</a>
+        </div>
+        <div class="col-sm-2">
+            <a href="@Url.Action("Logout", "User")" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Likes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PostID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PostID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PostID })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" style="width: 25rem;" src="@Html.DisplayFor(modelItem => item.Photo)" alt="Card image cap">
+                <div class="card-body">
+                    <b>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </p>
+                    </b>
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </p>
+                    <a href="@Url.Action("Details", "Posts", new { id = item.PostID })" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <br>
+        </div>
+    }
+</div>
