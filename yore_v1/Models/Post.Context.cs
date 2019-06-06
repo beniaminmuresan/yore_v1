@@ -13,10 +13,10 @@ namespace yore_v1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PostsModel : DbContext
+    public partial class PostModel : DbContext
     {
-        public PostsModel()
-            : base("name=PostsModel")
+        public PostModel()
+            : base("name=PostModel")
         {
         }
     

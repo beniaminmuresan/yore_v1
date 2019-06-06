@@ -10,27 +10,16 @@
 namespace yore_v1.Models
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-
-    public partial class Post : IEnumerable<Post>
+    
+    public partial class Post
     {
         public int PostID { get; set; }
         public Nullable<int> CategoryID { get; set; }
         public Nullable<int> UserID { get; set; }
         public string Photo { get; set; }
         public Nullable<int> Likes { get; set; }
-
-        List<Post> mylist = new List<Post>();
-
-        public IEnumerator<Post> GetEnumerator()
-        {
-            return ((IEnumerable<Post>)mylist).GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable<Post>)mylist).GetEnumerator();
-        }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 }
