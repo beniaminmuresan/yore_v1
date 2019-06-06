@@ -1,13 +1,62 @@
 ﻿@model yore_v1.Models.User
 
 @{
-    ViewBag.Title = "User Registration";
+    ViewBag.Title = "Register";
 }
 
-@using (Html.BeginForm("Register", "User", FormMethod.Post)) 
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+
+        @using (Html.BeginForm("Register", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div class="menu" style="width: 313px;">
+            <div class="login">
+                <center><img src="https://i.ibb.co/GMLNc55/yore-logo.png" border="0" width="50px"></center>
+
+                <h1>Register</h1>
+                <div class="input name">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "Username", @class = "text", @type = "text", @tabindex = "1" } })
+                    <div class="bar"></div>
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="input name">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @class = "text", @type = "password", @tabindex = "2" } })
+                    <div class="bar"></div>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <div class="input name">
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "Confirm Password", @class = "text", @type = "password", @tabindex = "2" } })
+                    <div class="bar"></div>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <label class="label-danger">@ViewBag.DuplicateMessage</label>
+                <button type="submit" value="Submit" tabindex="3" class="submit" disabled="disabled" title="Log In">Register</button>
+                <center><a href="@Url.Action("Login", "User")">Already have an account? Sign in now!</a></center>
+            </div>
+        </div>
+
+            <link href="~/Content/custom.css" rel="stylesheet" type="text/css" />
+        }
+    </div>
+    <div class="col-sm-4">
+    </div>
+</div>
+
+
+
+
+
+
+@*@using (Html.BeginForm("Register", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -52,7 +101,7 @@
             </div>
         </div>
     </div>
-}
+}*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
