@@ -46,8 +46,9 @@ namespace yore_v1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostID,CategoryID,UserID,Photo,Likes,Title,Content")] Post post)
+        public ActionResult Create([Bind(Include = "PostID,CategoryID,Photo,Likes,Title,Content")] Post post)
         {
+            post.UserID = Convert.ToInt32(Session["UserID"]);
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);

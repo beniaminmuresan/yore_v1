@@ -31,6 +31,7 @@
                         </div>
                         <button type="submit" value="Submit" tabindex="3" class="submit" disabled="disabled" title="Log In">Sign In</button>
                         <center><a href="@Url.Action("Register", "User")">Don't have an account yet? Sign up now!</a></center>
+                        <label class="label-danger">@ViewBag.LoginErrorMessage</label>
                     </div>
                 </div>
 

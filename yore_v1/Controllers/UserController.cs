@@ -61,6 +61,7 @@ namespace yore_v1.Controllers
             {
                 if (dbModel.Users.Any(x => x.Username == user.Username && x.Password == user.Password))
                 {
+                    user = dbModel.Users.Where(x => x.Username == user.Username).First();
                     Session["UserID"] = user.UserID.ToString();
                     Session["Username"] = user.Username.ToString();
                     return this.RedirectToAction("Index", "Posts");

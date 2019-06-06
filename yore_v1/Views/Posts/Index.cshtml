@@ -18,12 +18,12 @@
             <a href="@Url.Action("Logout", "User")" class="btn btn-danger">Logout</a>
         </div>
     </div>
-<br />
+    <br />
 
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="card" style="width: 25rem;">
                 <img class="card-img-top" style="width: 25rem;" src="@Html.DisplayFor(modelItem => item.Photo)" alt="Card image cap">
                 <div class="card-body">
