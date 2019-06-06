@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="PostID" />
           </Key>
-          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryID" Type="int" />
           <Property Name="UserID" Type="int" />
           <Property Name="Photo" Type="varchar(max)" />
@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="PostID" />
           </Key>
-          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryID" Type="Int32" />
           <Property Name="UserID" Type="Int32" />
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />

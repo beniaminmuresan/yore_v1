@@ -6,29 +6,28 @@
 
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <div class="menu">
         <div class="login">
             <center><img src="https://i.ibb.co/GMLNc55/yore-logo.png" border="0" width="50px"></center>
 
             <h1>Log In</h1>
-            <form action="">
-                <div class="input name">
-                    <label>Username</label>
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "1" }})
-                    <div class="bar"></div>
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                </div>
+            <div class="input name">
+                <label>Username</label>
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "1" } })
+                <div class="bar"></div>
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
 
-                <div class="input name">
-                    <label>Password</label>
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "2" } })
-                    <div class="bar"></div>
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </div>
-                <button type="button" tabindex="3" class="submit" disabled="disabled" title="Log In">GO</button>
-                <center><a href="">Don't have an account yet? Sign up now!</a></center>
-            </form>
+            <div class="input name">
+                <label>Password</label>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text", @type = "text", @tabindex = "2" } })
+                <div class="bar"></div>
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+            <button type="submit" value="Submit" tabindex="3" class="submit" disabled="disabled" title="Log In">GO</button>
+            <center><a href="">Don't have an account yet? Sign up now!</a></center>
         </div>
     </div>
 
